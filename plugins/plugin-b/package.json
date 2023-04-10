@@ -26,6 +26,7 @@
 		"postcss": "^8.4"
 	},
 	"devDependencies": {
+		"@rmenke/postcss-mono-repo-playground--package-a": "^1.0.0",
 		"@rmenke/postcss-mono-repo-playground--postcss-tape": "*"
 	},
 	"scripts": {
