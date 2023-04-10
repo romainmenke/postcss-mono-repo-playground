@@ -110,6 +110,8 @@ for (const workspace of notReleasableNow.values()) {
 	const packageInfo = JSON.parse(await fs.readFile(path.join(workspace.path, 'package.json')));
 	let didChange = false;
 
+	let changeLogAdditions = '';
+
 	for (const dependency of workspace.dependencies) {
 		if (needsRelease.has(dependency)) {
 			const updated = needsRelease.get(dependency);
@@ -121,6 +123,7 @@ for (const workspace of notReleasableNow.values()) {
 				updated.newVersion
 			) {
 				packageInfo.dependencies[updated.name] = '^' + updated.newVersion;
+				changeLogAdditions += ` - Updated \`${updated.name}\` to \`${updated.newVersion}\` (${updated.increment})`;
 				didChange = true;
 			}
 			if (
@@ -130,6 +133,7 @@ for (const workspace of notReleasableNow.values()) {
 				updated.newVersion
 			) {
 				packageInfo.devDependencies[updated.name] = '^' + updated.newVersion;
+				// dev dependencies are not included in the changelog
 				didChange = true;
 			}
 			if (
@@ -139,6 +143,7 @@ for (const workspace of notReleasableNow.values()) {
 				updated.newVersion
 			) {
 				packageInfo.peerDependencies[updated.name] = '^' + updated.newVersion;
+				changeLogAdditions += ` - Updated \`${updated.name}\` to \`${updated.newVersion}\` (${updated.increment})\n`;
 				didChange = true;
 			}
 		}
@@ -147,6 +152,26 @@ for (const workspace of notReleasableNow.values()) {
 	if (didChange) {
 		didChangeDownstreamPackages = true;
 		await fs.writeFile(path.join(workspace.path, 'package.json'), JSON.stringify(packageInfo, null, '\t') + '\n');
+	}
+
+	if (didChange && changeLogAdditions) {
+		let changelog = (await fs.readFile(path.join(workspace.path, 'CHANGELOG.md'))).toString();
+		if (changelog.includes('Unreleased')) {
+			let unreleasedSectionStart = changelog.indexOf('Unreleased');
+			let unreleasedSectionContent = changelog.indexOf('\n', unreleasedSectionStart);
+			let listStart = changelog.indexOf('- ', unreleasedSectionContent);
+			let nextSectionStart = changelog.indexOf('##', unreleasedSectionContent);
+			let listEnd = changelog.slice(0, nextSectionStart).lastIndexOf('- ', listStart);
+			let nextLine = changelog.indexOf('\n', listEnd);
+
+			changelog = changelog.slice(0, nextLine + 1) + changeLogAdditions + changelog.slice(nextLine + 1);
+		} else {
+			let nextSectionStart = changelog.indexOf('##');
+
+			changelog = changelog.slice(0, nextSectionStart) + `### Unreleased (patch)\n\n${changeLogAdditions}\n\n` + changelog.slice(nextSectionStart);
+		}
+
+		await fs.writeFile(path.join(workspace.path, 'CHANGELOG.md'), changelog);
 	}
 }
 
