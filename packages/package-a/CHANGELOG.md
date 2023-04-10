@@ -1,6 +1,6 @@
 # Package A
 
-### Unreleased (minor)
+### 1.3.0 (April 10, 2023)
 
 - Something
 
