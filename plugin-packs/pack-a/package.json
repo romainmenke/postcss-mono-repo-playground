@@ -1,7 +1,7 @@
 {
 	"name": "@rmenke/postcss-mono-repo-playground--pack-a",
 	"description": "TODO: Add description for pack-a",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
