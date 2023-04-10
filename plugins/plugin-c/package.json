@@ -1,7 +1,7 @@
 {
 	"name": "@rmenke/postcss-mono-repo-playground--plugin-c",
 	"description": "TODO: Add description for plugin-c",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
