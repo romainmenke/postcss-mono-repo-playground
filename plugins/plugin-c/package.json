@@ -23,7 +23,7 @@
 		"dist"
 	],
 	"dependencies": {
-		"@rmenke/postcss-mono-repo-playground--package-b": "0.0.0"
+		"@rmenke/postcss-mono-repo-playground--package-b": "^1.0.0"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
