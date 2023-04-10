@@ -155,7 +155,7 @@ await npmInstall();
 
 if (didChangeDownstreamPackages) {
 	await npmInstall();
-	await commitAfterDependencyUpdates(updated.newVersion, updated.name);
+	await commitAfterDependencyUpdates();
 }
 
 console.log('\nDone 🎉');

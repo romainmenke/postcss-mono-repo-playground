@@ -1,7 +1,7 @@
 {
 	"name": "@rmenke/postcss-mono-repo-playground--plugin-c",
 	"description": "TODO: Add description for plugin-c",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"engines": {
 		"node": "^14 || ^16 || >=18"
 	},
@@ -23,7 +23,7 @@
 		"dist"
 	],
 	"dependencies": {
-		"@rmenke/postcss-mono-repo-playground--package-b": "^1.0.0"
+		"@rmenke/postcss-mono-repo-playground--package-b": "^1.0.1"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
