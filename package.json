@@ -1,0 +1,44 @@
+{
+	"name": "@rmenke/postcss-mono-repo-playground",
+	"private": true,
+	"version": "1.0.0",
+	"description": "",
+	"engines": {
+		"node": "^14 || ^16 || >=18"
+	},
+	"workspaces": [
+		"packages/*",
+		"plugins/*",
+		"plugin-packs/*"
+	],
+	"devDependencies": {
+		"@babel/core": "^7.21.4",
+		"@babel/preset-env": "^7.21.4",
+		"@rollup/plugin-babel": "^6.0.3",
+		"@rollup/plugin-commonjs": "^24.0.1",
+		"@rollup/plugin-node-resolve": "^15.0.2",
+		"@rollup/plugin-terser": "^0.4.0",
+		"@rollup/plugin-typescript": "^11.1.0",
+		"@stryker-mutator/core": "^6.4.2",
+		"@typescript-eslint/eslint-plugin": "^5.57.1",
+		"eslint": "^8.37.0",
+		"rollup": "^3.20.2",
+		"tslib": "^2.5.0",
+		"typescript": "^5.0.4"
+	},
+	"scripts": {
+		"build": "npm run build --workspaces --if-present",
+		"clean": "npm run clean --workspaces --if-present",
+		"docs": "npm run docs --workspaces --if-present",
+		"lint": "npm run lint --workspaces --if-present && eslint ./ --ext .js --ext .mjs --ext .cjs --ext .ts --ext .mts --no-error-on-unmatched-pattern && bash .github/bin/detect-executable-files/detect-executable-files.sh && node .github/bin/license/check-license.mjs",
+		"new-plugin": "node ./.github/bin/new-plugin.mjs",
+		"release-plan": "node .github/bin/release-plan/release-plan.mjs",
+		"release-plan:dry-run": "node .github/bin/release-plan/release-plan.mjs --dry-run",
+		"test": "npm run test --workspaces --if-present",
+		"test:browser": "npm run test:browser --workspaces --if-present"
+	},
+	"volta": {
+		"node": "18.13.0",
+		"npm": "9.4.0"
+	}
+}

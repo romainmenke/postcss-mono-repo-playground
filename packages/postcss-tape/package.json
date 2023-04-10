@@ -1,0 +1,34 @@
+{
+	"name": "@rmenke/postcss-mono-repo-playground--postcss-tape",
+	"description": "Quickly test PostCSS plugins",
+	"version": "0.0.0",
+	"engines": {
+		"node": "^14 || ^16 || >=18"
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs",
+			"default": "./dist/index.mjs"
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"dependencies": {
+		"postcss": "~8.4",
+		"postcss-8.4": "npm:postcss@~8.4",
+		"postcss-html": "^1.5.0"
+	},
+	"scripts": {
+		"build": "rollup -c ../../rollup/default.mjs",
+		"lint": "node ../../.github/bin/format-package-json.mjs",
+		"test": "bash ./test-self/test.sh"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	}
+}
