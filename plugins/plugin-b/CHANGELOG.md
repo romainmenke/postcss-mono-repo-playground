@@ -1,6 +1,6 @@
 # Changes to PostCSS plugin-b
 
-### Unreleased (patch)
+### 1.0.1 (April 10, 2023)
 
 - Something
 
