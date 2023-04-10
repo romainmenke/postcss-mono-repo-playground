@@ -1,6 +1,6 @@
 # Changes to PostCSS plugin-a
 
-### Unreleased (minor)
+### 1.1.0 (April 10, 2023)
 
 - Something
 
