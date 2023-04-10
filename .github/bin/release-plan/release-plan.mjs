@@ -3,7 +3,7 @@ import fs from 'fs/promises'
 import path from 'path'
 import { npmVersion } from './npm-version.mjs';
 import { nowFormatted } from './date-format.mjs';
-import { commitAfterPackageRelease } from './commit.mjs';
+import { commitAfterDependencyUpdates, commitAfterPackageRelease } from './commit.mjs';
 import { npmPublish } from './npm-publish.mjs';
 import { updateDocumentation } from './docs.mjs';
 import { npmInstall } from './npm-install.mjs';
@@ -152,6 +152,10 @@ for (const workspace of notReleasableNow.values()) {
 
 console.log('\nUpdating lock file');
 await npmInstall();
+
+if (didChangeDownstreamPackages) {
+	await commitAfterDependencyUpdates();
+}
 
 console.log('\nDone 🎉');
 
