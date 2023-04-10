@@ -1,6 +1,6 @@
 # Package A
 
-### Unreleased (patch)
+### 1.1.1 (April 10, 2023)
 
 - Something
 
