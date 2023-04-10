@@ -123,7 +123,7 @@ for (const workspace of notReleasableNow.values()) {
 				updated.newVersion
 			) {
 				packageInfo.dependencies[updated.name] = '^' + updated.newVersion;
-				changeLogAdditions += ` - Updated \`${updated.name}\` to \`${updated.newVersion}\` (${updated.increment})`;
+				changeLogAdditions += `- Updated \`${updated.name}\` to \`${updated.newVersion}\` (${updated.increment})`;
 				didChange = true;
 			}
 			if (
@@ -143,7 +143,7 @@ for (const workspace of notReleasableNow.values()) {
 				updated.newVersion
 			) {
 				packageInfo.peerDependencies[updated.name] = '^' + updated.newVersion;
-				changeLogAdditions += ` - Updated \`${updated.name}\` to \`${updated.newVersion}\` (${updated.increment})\n`;
+				changeLogAdditions += `- Updated \`${updated.name}\` to \`${updated.newVersion}\` (${updated.increment})\n`;
 				didChange = true;
 			}
 		}
@@ -164,7 +164,7 @@ for (const workspace of notReleasableNow.values()) {
 			let listEnd = changelog.slice(0, nextSectionStart).lastIndexOf('- ', listStart);
 			let nextLine = changelog.indexOf('\n', listEnd);
 
-			changelog = changelog.slice(0, nextLine + 1) + changeLogAdditions + changelog.slice(nextLine + 1);
+			changelog = changelog.slice(0, nextLine + 1) + changeLogAdditions + '\n' + changelog.slice(nextLine + 1);
 		} else {
 			let nextSectionStart = changelog.indexOf('##');
 
