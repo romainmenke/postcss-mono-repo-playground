@@ -147,13 +147,16 @@ for (const workspace of notReleasableNow.values()) {
 	if (didChange) {
 		didChangeDownstreamPackages = true;
 		await fs.writeFile(path.join(workspace.path, 'package.json'), JSON.stringify(packageInfo, null, '\t') + '\n');
-		await npmInstall();
-		await commitAfterDependencyUpdates(workspace.newVersion, workspace.name);
 	}
 }
 
 console.log('\nUpdating lock file');
 await npmInstall();
+
+if (didChangeDownstreamPackages) {
+	await npmInstall();
+	await commitAfterDependencyUpdates(updated.newVersion, updated.name);
+}
 
 console.log('\nDone 🎉');
 

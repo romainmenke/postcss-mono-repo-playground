@@ -41,14 +41,14 @@ export async function commitAfterPackageRelease(newVersion, packageDirectory, pa
 	});
 }
 
-export async function commitAfterDependencyUpdates(newVersion, packageName) {
+export async function commitAfterDependencyUpdates() {
 	await new Promise((resolve, reject) => {
 		const commitCmd = spawn(
 			'git',
 			[
 				'commit',
 				'-am',
-				`update ${packageName} to v${newVersion}` // "@csstools/css-tokenizer v1.0.0"
+				`set dependencies to newly released versions`
 			]
 		);
 
