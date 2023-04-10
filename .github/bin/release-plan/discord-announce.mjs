@@ -19,6 +19,10 @@ const getChangelog = (changelog) => {
 
 export async function discordAnnounce(workspace) {
 	const discordArgument = process.argv.slice(2).find(arg => arg.includes('--discord='));
+	if (!discordArgument) {
+		return;
+	}
+
 	const [,webHookUrl] = discordArgument.split('=');
 
 	if (!webHookUrl || workspace.increment === 'patch') {
