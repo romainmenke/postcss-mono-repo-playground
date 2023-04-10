@@ -21,7 +21,7 @@
 		"dist"
 	],
 	"dependencies": {
-		"@rmenke/postcss-mono-repo-playground--package-a": "^1.1.1"
+		"@rmenke/postcss-mono-repo-playground--package-a": "^1.2.0"
 	},
 	"scripts": {
 		"build": "rollup -c ../../rollup/default.mjs",

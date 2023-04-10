@@ -157,7 +157,7 @@ for (const workspace of notReleasableNow.values()) {
 
 	if (didChange && changeLogAdditions) {
 		let changelog = (await fs.readFile(path.join(workspace.path, 'CHANGELOG.md'))).toString();
-		changelog = addUpdatedPackagesToChangelog(workspace, changelog);
+		changelog = addUpdatedPackagesToChangelog(workspace, changelog, changeLogAdditions);
 
 		await fs.writeFile(path.join(workspace.path, 'CHANGELOG.md'), changelog);
 	}
