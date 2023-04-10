@@ -1,5 +1,9 @@
 # Package A
 
+### 1.2.0 (April 10, 2023)
+
+- Something
+
 ### 1.1.1 (April 10, 2023)
 
 - Something

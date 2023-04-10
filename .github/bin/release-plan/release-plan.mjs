@@ -8,6 +8,7 @@ import { npmPublish } from './npm-publish.mjs';
 import { updateDocumentation } from './docs.mjs';
 import { npmInstall } from './npm-install.mjs';
 import { discordAnnounce } from './discord-announce.mjs';
+import { addUpdatedPackagesToChangelog } from './add-to-changelog.mjs';
 
 const workspaces = await listWorkspaces();
 // Things to release
@@ -156,19 +157,7 @@ for (const workspace of notReleasableNow.values()) {
 
 	if (didChange && changeLogAdditions) {
 		let changelog = (await fs.readFile(path.join(workspace.path, 'CHANGELOG.md'))).toString();
-		if (changelog.includes('Unreleased')) {
-			let unreleasedSectionStart = changelog.indexOf('Unreleased');
-			let unreleasedSectionContent = changelog.indexOf('\n', unreleasedSectionStart);
-			let nextSectionStart = changelog.indexOf('##', unreleasedSectionContent);
-			let listEnd = changelog.lastIndexOf('- ', nextSectionStart);
-			let nextLine = changelog.indexOf('\n', listEnd);
-
-			changelog = changelog.slice(0, nextLine + 1) + changeLogAdditions + '\n' + changelog.slice(nextLine + 1);
-		} else {
-			let nextSectionStart = changelog.indexOf('##');
-
-			changelog = changelog.slice(0, nextSectionStart) + `### Unreleased (patch)\n\n${changeLogAdditions}\n\n` + changelog.slice(nextSectionStart);
-		}
+		changelog = addUpdatedPackagesToChangelog(workspace, changelog);
 
 		await fs.writeFile(path.join(workspace.path, 'CHANGELOG.md'), changelog);
 	}
