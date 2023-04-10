@@ -25,7 +25,7 @@
 	"dependencies": {
 		"@rmenke/postcss-mono-repo-playground--plugin-a": "^1.1.1",
 		"@rmenke/postcss-mono-repo-playground--plugin-b": "^1.0.4",
-		"@rmenke/postcss-mono-repo-playground--plugin-c": "^1.0.2"
+		"@rmenke/postcss-mono-repo-playground--plugin-c": "^1.0.3"
 	},
 	"peerDependencies": {
 		"postcss": "^8.4"
