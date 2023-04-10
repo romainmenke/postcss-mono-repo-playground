@@ -41,7 +41,7 @@ export async function commitAfterPackageRelease(newVersion, packageDirectory, pa
 	});
 }
 
-export async function commitAfterDependencyUpdates(newVersion, packageDirectory, packageName) {
+export async function commitAfterDependencyUpdates(newVersion, packageName) {
 	await new Promise((resolve, reject) => {
 		const commitCmd = spawn(
 			'git',

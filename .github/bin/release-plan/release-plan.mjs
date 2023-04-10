@@ -154,7 +154,7 @@ console.log('\nUpdating lock file');
 await npmInstall();
 
 if (didChangeDownstreamPackages) {
-	await commitAfterDependencyUpdates();
+	await commitAfterDependencyUpdates(workspace.newVersion, workspace.name);
 }
 
 console.log('\nDone 🎉');
