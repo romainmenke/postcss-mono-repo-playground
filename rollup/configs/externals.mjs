@@ -10,8 +10,10 @@ export const externalsForCLI = [
 	'postcss-html',
 
 	'@rmenke/postcss-mono-repo-playground--package-a',
+	'@rmenke/postcss-mono-repo-playground--package-b',
 	'@rmenke/postcss-mono-repo-playground--plugin-a',
 	'@rmenke/postcss-mono-repo-playground--plugin-b',
+	'@rmenke/postcss-mono-repo-playground--plugin-c',
 ];
 
 export const externalsForPlugin = [
@@ -28,8 +30,10 @@ export const externalsForPlugin = [
 	'postcss-html',
 
 	'@rmenke/postcss-mono-repo-playground--package-a',
+	'@rmenke/postcss-mono-repo-playground--package-b',
 	'@rmenke/postcss-mono-repo-playground--plugin-a',
 	'@rmenke/postcss-mono-repo-playground--plugin-b',
+	'@rmenke/postcss-mono-repo-playground--plugin-c',
 ];
 
 export const externalsForBrowser = [];

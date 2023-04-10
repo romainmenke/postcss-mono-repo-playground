@@ -1,0 +1,1 @@
+const creator=e=>{const o=Object.assign({color:null,preserve:!1},e);return{postcssPlugin:"postcss-mono-repo-playground--plugin-c",Declaration(e){if("pink"===e.value){let r="cyan";if(o.color&&(r=o.color),r===e.value)return;if(e.cloneBefore({prop:"color",value:r}),o.preserve)return;e.remove()}}}};creator.postcss=!0;export{creator as default};
