@@ -1,6 +1,6 @@
 # Changes to PostCSS pack-a
 
-### Unreleased (patch)
+### 1.0.1 (April 10, 2023)
 
 - Something
 - Updated `@rmenke/postcss-mono-repo-playground--plugin-b` to `1.0.3` (patch)
