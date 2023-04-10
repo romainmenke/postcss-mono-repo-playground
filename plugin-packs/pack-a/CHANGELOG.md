@@ -1,5 +1,10 @@
 # Changes to PostCSS pack-a
 
+### Unreleased (patch)
+
+- Something
+- Other thing
+
 ### 1.0.1 (April 10, 2023)
 
 - Something
