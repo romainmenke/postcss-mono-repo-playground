@@ -4,6 +4,7 @@
 
 - Something
 - Other thing
+- Updated `@rmenke/postcss-mono-repo-playground--plugin-b` to `1.0.4` (patch)
 
 ### 1.0.1 (April 10, 2023)
 

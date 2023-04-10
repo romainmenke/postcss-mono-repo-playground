@@ -3,6 +3,7 @@
 ### Unreleased (patch)
 
 - Updated `@rmenke/postcss-mono-repo-playground--package-a` to `1.3.0` (minor)
+- Updated `@rmenke/postcss-mono-repo-playground--package-b` to `1.0.4` (patch)
 
 ### 1.0.2 (April 10, 2023)
 
