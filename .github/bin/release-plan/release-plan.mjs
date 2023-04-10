@@ -159,9 +159,8 @@ for (const workspace of notReleasableNow.values()) {
 		if (changelog.includes('Unreleased')) {
 			let unreleasedSectionStart = changelog.indexOf('Unreleased');
 			let unreleasedSectionContent = changelog.indexOf('\n', unreleasedSectionStart);
-			let listStart = changelog.indexOf('- ', unreleasedSectionContent);
 			let nextSectionStart = changelog.indexOf('##', unreleasedSectionContent);
-			let listEnd = changelog.slice(0, nextSectionStart).lastIndexOf('- ', listStart);
+			let listEnd = changelog.lastIndexOf('- ', nextSectionStart);
 			let nextLine = changelog.indexOf('\n', listEnd);
 
 			changelog = changelog.slice(0, nextLine + 1) + changeLogAdditions + '\n' + changelog.slice(nextLine + 1);
