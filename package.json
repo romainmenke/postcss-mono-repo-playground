@@ -22,7 +22,7 @@
 		"@stryker-mutator/core": "^6.4.2",
 		"@typescript-eslint/eslint-plugin": "^5.57.1",
 		"eslint": "^8.37.0",
-		"rollup": "^3.20.2",
+		"rollup": "^3.21.0",
 		"tslib": "^2.5.0",
 		"typescript": "^5.0.4"
 	},
